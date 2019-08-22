@@ -1,91 +1,17 @@
-# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
 __pycache__/
-.pytest_cache
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Bash
-codecheck.sh
-
-# Distribution / packaging
-.Python
+.idea/
+.DS_Store
 env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-scripts/
+venv/
 *.egg-info/
-.installed.cfg
-*.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
+*.eggs/
+build/
+dist/
+docs/_build/
+.pytest_cache/
 .tox/
 .coverage
 .coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
-.hypothesis/
-
-# Translations
-*.mo
-*.pot
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Sphinx documentation
-docs/_build/
-docs/build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# virtualenv
-.env
-env/
-.venv
-venv/
-ENV/
-
-# Other
-.DS_Store
-*.log
-*.h5
-*.png
-
-# Project files
-node_modules/
-codecheck.log
-bashscr/
+htmlcov/
