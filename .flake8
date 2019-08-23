@@ -1,0 +1,11 @@
+# Flake8 tool configuration settings file for analyzing
+# source code for potential errors and style against PEP8
+# standard format.
+
+[flake8]
+filename=*.py
+statistics = True
+count = True
+# Print the source code generating the error/warning.
+# show_source = True
+max-line-length = 89
