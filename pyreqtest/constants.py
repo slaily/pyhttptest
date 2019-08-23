@@ -1,0 +1,1 @@
+JSON_FILE_EXTENSION = '.json'
