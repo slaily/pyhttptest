@@ -1,6 +1,9 @@
 import ijson.backends.yajl2 as ijson
 
+from pyreqtest.decorators import check_file_extension
 
+
+@check_file_extension
 def load_json_from_file(file_path):
     """Loads JSON data from the file.
 
