@@ -10,7 +10,7 @@ def test_load_json_from_file():
     assert isinstance(json_dict, dict)
 
 
-def test_load_json_from_file_format_type_yaml():
+def test_load_json_from_file_with_not_supported_file_extension():
     with pytest.raises(FileExtensionError) as exc:
         core.load_json_from_file('data/test_data.yaml')
 
