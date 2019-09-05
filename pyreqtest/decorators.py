@@ -1,6 +1,7 @@
 from functools import wraps
 
 from pyreqtest.constants import JSON_FILE_EXTENSION
+from pyreqtest.exceptions import FileExtensionError
 
 
 def check_file_extension(func):
@@ -20,7 +21,8 @@ def check_file_extension(func):
     """
     @wraps(func)
     def _decorator(file_path):
-        if file_path[-5:] != JSON_FILE_EXTENSION:
-            raise Exception()
+        file_extension = file_path[-5:]
+        if file_extension != JSON_FILE_EXTENSION:
+            raise FileExtensionError(file_extension)
         return func(file_path)
     return _decorator
