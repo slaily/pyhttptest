@@ -8,7 +8,10 @@ class FileExtensionError(Exception):
         :param str file_extension: File extension
         """
         self.file_extension = file_extension
-        self.message = "A file extension '{file_extension}' is not supported".format(
-            file_extension=self.file_extension
+        self.message = (
+            "A file extension '{file_extension}' is not supported. "
+            "Only a file with '.json' extension is supported".format(
+                file_extension=self.file_extension
+            )
         )
         super().__init__(self.message)
