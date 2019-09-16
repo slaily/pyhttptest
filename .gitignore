@@ -13,5 +13,7 @@ docs/_build/
 .pytest_cache/
 .tox/
 .coverage
+.coveragerc
 .coverage.*
 htmlcov/
+.flake8
