@@ -1,7 +1,7 @@
-# A schema that defines a structure for sending an HTTP Request,
-# along with required and non-required parameters like Request Header
-# and Response Headerthat might be sent by request.
-# This is the base schema that will be inherited from the HTTP Methods
+# A ``dict`` schema that defines a structure specification for sending
+# an HTTP Request, along with required and non-required parameters
+# like Request Header and Response Headert that might be sent by request.
+# This is the base schema that will be extended from the HTTP Methods
 # schemas::
 #
 #     ... GET - :file:`pyreqtest/http_schemas/get_schema.py`

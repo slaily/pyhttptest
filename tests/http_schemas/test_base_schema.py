@@ -22,7 +22,7 @@ def test_schema_with_valid_data():
 def test_schema_with_invalid_data():
     with pytest.raises(ValidationError) as exc:
         # Not including a required property 'endpoint'
-        # for the schema into the `dict` below
+        # from the schema into the ``dict`` below
         data = {
             'name': 'Test',
             'verb': 'Base',
