@@ -1,5 +1,7 @@
 from jsonschema import validate
 
+from pyreqtest.http_schemas.get_schema import get_schema
+
 
 def test_schema_with_valid_data():
     data = {
