@@ -12,7 +12,10 @@ base_schema = {
     'type': 'object',
     'properties': {
         'name': {'type': 'string'},
-        'verb': {'type': 'string'},
+        'verb': {
+            'type': 'string',
+            'enum': ['GET']
+        },
         'endpoint': {'type': 'string'},
         'host': {'type': 'string'},
         'request_headers': {
