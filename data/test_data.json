@@ -1,8 +1,6 @@
 {
-  "test": "data",
-  "test_array": [
-    {
-      "index": 1
-    }
-  ]
+  "name": "TEST: List all users",
+  "verb": "GET",
+  "endpoint": "users",
+  "host": "http://localhost:8080"
 }
