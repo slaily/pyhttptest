@@ -9,7 +9,7 @@ from pyreqtest.http_schemas.base_schema import base_schema
 def test_schema_with_valid_data():
     data = {
         'name': 'Test',
-        'verb': 'Base',
+        'verb': 'GET',
         'endpoint': 'users',
         'host': 'http://test.com',
     }
@@ -25,7 +25,7 @@ def test_schema_with_invalid_data():
         # from the schema into the ``dict`` below
         data = {
             'name': 'Test',
-            'verb': 'Base',
+            'verb': 'GET',
             'host': 'http://test.com',
         }
 
