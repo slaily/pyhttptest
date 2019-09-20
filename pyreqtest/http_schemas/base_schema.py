@@ -18,7 +18,7 @@ base_schema = {
         },
         'endpoint': {'type': 'string'},
         'host': {'type': 'string'},
-        'request_headers': {
+        'headers': {
             'type': 'object',
             'properties': {
                 'Content-Type': {'type': 'string'},
@@ -51,33 +51,6 @@ base_schema = {
                 'User-Agent': {'type': 'string'}
             }
         },
-        'response_headers': {
-            'type': 'object',
-            'properties': {
-                'ETag': {'type': 'string'},
-                'Last-Modified': {
-                    'type': 'string',
-                    'format': 'date'  # <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
-                },
-                'WWW-Authenticate': {'type': 'string'},
-                'Proxy-Authenticate': {'type': 'string'},
-                'Allow': {'type': 'string'},
-                'Server': {'type': 'string'},
-                'Age': {'type': 'number'},
-                'Cache-Control': {'type': 'string'},
-                'Expires': {
-                    'type': 'string',
-                    'format': 'date'  # <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
-                },
-                'Date': {
-                    'type': 'string',
-                    'format': 'date'  # <day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT
-                },
-                'Location': {'type': 'string'},
-                'Retry-After': {'type': 'number'},
-                'Vary': {'type': 'string'}
-            }
-        }
     },
     'required': [
         'name',
