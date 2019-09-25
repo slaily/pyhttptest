@@ -1,3 +1,6 @@
+from pyreqtest import utils
+
+
 def test_extract_json_keys_values():
     json_data = {
         "name": "TEST: List all users",
@@ -16,4 +19,4 @@ def test_extract_json_keys_values():
     )
     args = utils.extract_json_keys_values(json_data, json_keys)
 
-    assert json_data_keys_values == args
+    assert sorted(json_data_keys_values) == sorted(args)
