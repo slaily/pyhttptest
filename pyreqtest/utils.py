@@ -1,5 +1,11 @@
-def extract_json_keys_values(data, keys):
-    """Extracts values of the JSON keys.
+def extract_properties_values_from_json(data, keys):
+    """Extracts properties values from the JSON data.
+
+    .. note::
+
+        Each of key/value pairs into JSON conventionally referred
+        to as a "property". More information about this convention follow
+        `JSON Schema documentation <https://json-schema.org/understanding-json-schema/reference/object.html>`_.  # noqa
 
     Passing ``data`` argument for an example:
 
@@ -15,14 +21,14 @@ def extract_json_keys_values(data, keys):
         keys = ('verb', 'endpoint', host')
 
     Iterating over ``keys`` parameter values and
-    extracts the value of ``data`` parameter key with the
+    extracts the property value of ``data`` parameter by key with the
     exact same value.
 
     Result:
         ('GET', 'users, 'http://localhost:8080')
 
-    :param dict data: Content within а JSON format.
-    :param tuple|list|set keys: Structure with values of type str.
+    :param dict data: Data within а JSON format.
+    :param tuple|list|set keys: Iterable with values of type str.
 
     :returns: Packaged values within а tuple.
     :rtype: tuple
