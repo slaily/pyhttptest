@@ -34,7 +34,9 @@ def extract_json_keys_values(data, keys):
         raise TypeError(
             (
                 "Passed 'data' param argument, must be of "
-                "data type 'dict'."
+                "data type 'dict'. Not a type of {type}.".format(
+                    type=type(data)
+                )
             )
         )
 
@@ -42,7 +44,9 @@ def extract_json_keys_values(data, keys):
         raise TypeError(
             (
                 "Passed 'keys' param argument, must be one of: "
-                "(tuple, list, set) data types."
+                "(tuple, list, set) data types. Not a type of {type}.".format(
+                    type=type(keys)
+                )
             )
         )
 
