@@ -51,8 +51,8 @@ def validate_extract_json_properties_func_args(func):
         def extract_properties_values_from_json(data, keys):
             ...
 
-    :raises TypeError: If the data is not a dict.
-    :raises TypeError: If the keys is not a type of (tuple, list, set).
+    :raises TypeError: If the data is not a `dict`.
+    :raises TypeError: If the keys is not a type of (`tuple`, `list`, `set`).
     """
     @wraps(func)
     def _decorator(data, keys):
