@@ -27,29 +27,6 @@ def test_extract_properties_values_from_json():
     assert sorted(expected_keys_values) == sorted(extracted_keys_values)
 
 
-def test_extract_properties_values_from_json_with_wrong_data_format():
-    json_data = 'key: value'
-
-    with pytest.raises(TypeError) as exc:
-        utils.extract_properties_values_from_json(json_data, ())
-
-    part_of_exc_msg = 'Not a type of {type}'.format(type=type(json_data))
-
-    assert part_of_exc_msg in str(exc.value)
-
-
-def test_extract_properties_values_from_json_with_wrong_keys_format():
-    json_data = {'name': 'test', 'verb': 'GET'}
-    json_keys = 'name, verb'
-
-    with pytest.raises(TypeError) as exc:
-        utils.extract_properties_values_from_json(json_data, json_keys)
-
-    part_of_exc_msg = 'Not a type of {type}'.format(type=type(json_keys))
-
-    assert part_of_exc_msg in str(exc.value)
-
-
 def test_extract_properties_values_of_type_dict_from_json():
     json_data = {
         'host': 'HTTP://localhost:8080',
