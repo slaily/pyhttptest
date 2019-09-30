@@ -6,7 +6,7 @@ def test_extract_properties_values_from_json():
         'name': 'TEST: List all users',
         'verb': 'GET',
         'endpoint': 'users',
-        'host': 'HTTP://localhost:8080',
+        'host': 'http://localhost:8080',
         'headers': {
             'Accept-Language': 'en-US'
         }
@@ -27,7 +27,7 @@ def test_extract_properties_values_from_json():
 
 def test_extract_properties_values_of_type_dict_from_json():
     json_data = {
-        'host': 'HTTP://localhost:8080',
+        'host': 'http://localhost:8080',
         'headers': {
             'Accept-Language': 'en-US'
         }
@@ -39,3 +39,11 @@ def test_extract_properties_values_of_type_dict_from_json():
     )
 
     assert 'headers' in extracted_keys_values
+
+
+def test_prepare_url():
+    host = 'http://localhost:8080'
+    endpoint = 'users'
+    url = utils.prepare_url(host, endpoint)
+
+    assert url == 'http://localhost:8080/users'
