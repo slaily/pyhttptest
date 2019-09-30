@@ -1,3 +1,6 @@
+from urllib.parse import urlparse
+from http.client import InvalidURL
+
 from pyreqtest.decorators import validate_extract_json_properties_func_args
 
 
@@ -101,3 +104,44 @@ def extract_properties_values_of_type_dict_from_json(data, keys):
         key: data[key] for key in keys
         if key in data and isinstance(data[key], dict)
     }
+
+
+def prepare_url(host, endpoint):
+    """Glues the ``host`` and ``endpoint`` parameters to
+    form an URL.
+
+    :param str host: Value e.g. **http://localhost.com**.
+    :param str endpoint: An API resourse e.g. **/users**.
+
+    :raises InvalidURL: If the URL parts are in invalid format.
+    :raises InvalidURL: If the URL schema is not supported.
+
+    :returns: URL.
+    :rtype: `str`
+    """
+    if not host[-1] == '/' and not endpoint[0] == '/':
+        url = '/'.join([host, endpoint])
+
+    if host[-1] == '/' and not endpoint[0] == '/':
+        url = ''.join([host, endpoint])
+
+    if not host[-1] == '/' and endpoint[0] == '/':
+        url = ''.join([host, endpoint])
+
+    if host[-1] == '/' and endpoint[0] == '/':
+        url = ''.join([host, endpoint[1:]])
+
+    parsed_url = urlparse(url)
+
+    if not parsed_url.scheme or not parsed_url.netloc:
+        raise InvalidURL("Invalid URL {url}".format(url=url))
+
+    if parsed_url.scheme not in ['http', 'https']:
+        raise InvalidURL(
+            'Invalid URL scheme {scheme}. '
+            'Supported schemes are http or https.'.format(
+                scheme=parsed_url.scheme
+            )
+        )
+
+    return url
