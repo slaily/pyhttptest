@@ -15,3 +15,10 @@ def test_load_json_from_file_with_not_supported_file_extension():
         core.load_json_from_file('data/test_data.yaml')
 
     assert "is not supported" in str(exc.value)
+
+
+def test_extract_json_data():
+    data = core.load_json_from_file('data/test_data.json')
+    required_args, optional_kwargs = core.extract_json_data(data)
+
+    assert isinstance(required_args, tuple) and isinstance(optional_kwargs, dict)
