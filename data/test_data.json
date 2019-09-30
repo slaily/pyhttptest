@@ -1,6 +1,0 @@
-{
-  "name": "TEST: List all users",
-  "verb": "GET",
-  "endpoint": "users",
-  "host": "http://localhost:8080"
-}
