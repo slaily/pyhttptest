@@ -32,3 +32,30 @@ def test_validate_extract_json_properties_func_args():
     has_func_result = func(json_data, json_keys)
 
     assert has_func_result
+
+
+def test_validate_extract_json_properties_func_args_with_wrong_data_format():
+    with pytest.raises(TypeError) as exc:
+        func = decorators.validate_extract_json_properties_func_args(
+            lambda data, keys: None
+        )
+        json_data = 'key: value'
+        func(json_data, ())
+
+    part_of_exc_msg = 'Not a type of {type}'.format(type=type(json_data))
+
+    assert part_of_exc_msg in str(exc.value)
+
+
+def test_extract_properties_values_from_json_with_wrong_keys_format():
+    with pytest.raises(TypeError) as exc:
+        func = decorators.validate_extract_json_properties_func_args(
+            lambda data, keys: None
+        )
+        json_data = {'name': 'test', 'verb': 'GET'}
+        json_keys = 'name, verb'
+        func(json_data, json_keys)
+
+    part_of_exc_msg = 'Not a type of {type}'.format(type=type(json_keys))
+
+    assert part_of_exc_msg in str(exc.value)
