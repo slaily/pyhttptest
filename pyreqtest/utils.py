@@ -119,6 +119,9 @@ def prepare_url(host, endpoint):
     :returns: URL.
     :rtype: `str`
     """
+    if not host or not endpoint:
+        return None
+
     if not host[-1] == '/' and not endpoint[0] == '/':
         url = '/'.join([host, endpoint])
 
@@ -134,7 +137,7 @@ def prepare_url(host, endpoint):
     parsed_url = urlparse(url)
 
     if not parsed_url.scheme or not parsed_url.netloc:
-        raise InvalidURL("Invalid URL {url}".format(url=url))
+        raise InvalidURL('Invalid URL {url}'.format(url=url))
 
     if parsed_url.scheme not in ['http', 'https']:
         raise InvalidURL(
