@@ -5,7 +5,7 @@ class FileExtensionError(Exception):
         """Instantiate an object with a file extension isn't supported for
         loading and message that gives information to the user.
 
-        :param str file_extension: File extension
+        :param str file_extension: A File extension e.g. '.yaml'.
         """
         self.file_extension = file_extension
         self.message = (

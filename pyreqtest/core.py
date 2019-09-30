@@ -1,5 +1,7 @@
 import ijson.backends.yajl2 as ijson
 
+from pyreqtest import utils
+from pyreqtest import constants
 from pyreqtest.decorators import check_file_extension
 
 
@@ -10,10 +12,10 @@ def load_json_from_file(file_path):
     By passing ``file_path`` parameter, the file is opened
     and the data from the file is extracted.
 
-    :param str file_path: Optional file path
+    :param str file_path: Optional file path.
 
-    :returns: JSON data
-    :rtype: dict
+    :returns: JSON data.
+    :rtype: `dict`
     """
     with open(file_path, 'rb') as file:
         items_generator = ijson.items(file, '')
@@ -21,3 +23,27 @@ def load_json_from_file(file_path):
         json_dict = list_items[0]
 
         return json_dict
+
+
+def extract_json_data(data):
+    """Wrapper function that extracts JSON data.
+
+    By passing ``data`` parameter, the JSON content
+    from parameter is extracted under the required
+    and optional keys.
+
+    :param dict data: An arbitrary data.
+
+    :returns: Splitted data into required and optional.
+    :rtype: `tuple`
+    """
+    required_args = utils.extract_properties_values_from_json(
+        data,
+        constants.REQUIRED_SCHEMA_KEYS
+    )
+    optional_kwargs = utils.extract_properties_values_of_type_dict_from_json(
+        data,
+        constants.OPTIONAL_SCHEMA_KEYS
+    )
+
+    return (required_args, optional_kwargs)

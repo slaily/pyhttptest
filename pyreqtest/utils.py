@@ -38,10 +38,10 @@ def extract_properties_values_from_json(data, keys):
 
         ('GET', 'users, 'http://localhost:8080')
 
-    :param dict data: Data within а JSON format.
+    :param dict data: An arbitrary data.
     :param tuple|list|set keys: Iterable with values of type `str`.
 
-    :returns: Packaged values within а `tuple`.
+    :returns: Packaged values.
     :rtype: `tuple`
     """
     return tuple(data[key] for key in keys if key in data)
@@ -91,10 +91,10 @@ def extract_properties_values_of_type_dict_from_json(data, keys):
             }
         }
 
-    :param dict data: Data within а JSON format.
+    :param dict data: An arbitrary data.
     :param tuple|list|set keys: Iterable with values of type `str`.
 
-    :returns: Packaged key/value pairs within а `dict`.
+    :returns: Packaged key/value pairs.
     :rtype: `dict`
     """
     return {
