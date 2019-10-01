@@ -15,3 +15,22 @@ class FileExtensionError(Exception):
             )
         )
         super().__init__(self.message)
+
+
+class HTTPVerbNotSupportedError(Exception):
+    """The exception raised when HTTP verb isn't supported
+    on the application level or typo found.
+    """
+
+    def __init__(self, verb):
+        """Instantiate an object with a verb and message that gives information to the user.
+
+        :param str verb: An HTTP verb e.g. 'HEAD'.
+        """
+        self.verb = verb
+        self.message = (
+            "An HTTP verb ('{verb}') is not supported by the application.".format(
+                verb=self.verb
+            )
+        )
+        super().__init__(self.message)
