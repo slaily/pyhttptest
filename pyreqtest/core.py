@@ -47,3 +47,25 @@ def extract_json_data(data):
     )
 
     return (required_args, optional_kwargs)
+
+
+def prepare_request_args(*args):
+    """Prepares the required arguments that will be used
+    to send an HTTP Request.
+
+    By passing ``args`` parameter, the arguments within
+    are transformed in a way to cover sending an HTTP Request
+    gracefully.
+
+    :param args: Expect arguments in format (name, verb, endpoint, host).
+
+    :returns: Transformed arguments for HTTP Request.
+    :rtype: `tuple`
+    """
+    if not args and len(args) != 4:
+        return None
+
+    _, http_method, endpoint, host = args
+    url = utils.prepare_url(host, endpoint)
+
+    return (http_method.lower(), url)
