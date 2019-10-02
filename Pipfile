@@ -11,6 +11,7 @@ pytest-cov = "*"
 pytest = "*"
 ijson = "*"
 jsonschema = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"
