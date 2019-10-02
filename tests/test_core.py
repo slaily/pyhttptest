@@ -22,3 +22,16 @@ def test_extract_json_data():
     required_args, optional_kwargs = core.extract_json_data(data)
 
     assert isinstance(required_args, tuple) and isinstance(optional_kwargs, dict)
+
+
+def test_prepare_request_args():
+    args = (
+        'TEST: List all users',
+        'GET',
+        'users',
+        'http://localhost:8080'
+    )
+    request_args = core.prepare_request_args(*args)
+    expected_args = ('get', 'http://localhost:8080/users')
+
+    assert sorted(request_args) and sorted(expected_args)
