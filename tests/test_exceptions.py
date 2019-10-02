@@ -11,8 +11,8 @@ def test_file_extension_error_exception():
     assert file_extension_error.message == exception_message
 
 
-def test_http_verb_not_supported_error_exception():
-    http_verb_not_supported_error = exceptions.HTTPVerbNotSupportedError('HEAD')
-    exception_message = "An HTTP verb ('HEAD') is not supported by the application."
+def test_http_method_not_supported_error_exception():
+    http_method_not_supported_error = exceptions.HTTPMethodNotSupportedError('HEAD')
+    exception_message = "An HTTP method ('HEAD') is not supported by the application."
 
-    assert http_verb_not_supported_error.message == exception_message
+    assert http_method_not_supported_error.message == exception_message
