@@ -34,4 +34,4 @@ def test_prepare_request_args():
     request_args = core.prepare_request_args(*args)
     expected_args = ('get', 'http://localhost:8080/users')
 
-    assert sorted(request_args) and sorted(expected_args)
+    assert sorted(request_args) == sorted(expected_args)
