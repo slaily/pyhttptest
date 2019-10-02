@@ -12,4 +12,4 @@ OPTIONAL_SCHEMA_KEYS = (
     'query_string'
 )
 
-HTTP_METHOD_NAMES = ()
+HTTP_METHOD_NAMES = ('get')
