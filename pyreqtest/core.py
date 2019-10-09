@@ -3,6 +3,7 @@ import ijson.backends.yajl2 as ijson
 from pyreqtest import utils
 from pyreqtest import constants
 from pyreqtest.decorators import check_file_extension
+from pyreqtest.http import method_dispatcher
 
 
 @check_file_extension
@@ -69,3 +70,16 @@ def prepare_request_args(*args):
     url = utils.prepare_url(host, endpoint)
 
     return (http_method.lower(), url)
+
+
+def send_http_request(*args, **kwargs):
+    """Wrapper function responsible for sending an HTTP Request
+    and receiving an HTTP Response.
+
+    :param args: An HTTP Request arguments.
+    :param kwargs: Optional arguments like HTTP headers, cookies and etc.
+
+    :returns: :class:`Response` object or `None`.
+    :rtype: :class:`requests.Response` or `None`
+    """
+    return method_dispatcher(*args, **kwargs)
