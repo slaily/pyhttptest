@@ -1,4 +1,8 @@
+from unittest.mock import patch
+
 import pytest
+
+from requests import Response
 
 from pyreqtest import core
 from pyreqtest.exceptions import FileExtensionError
@@ -35,3 +39,12 @@ def test_prepare_request_args():
     expected_args = ('get', 'http://localhost:8080/users')
 
     assert sorted(request_args) == sorted(expected_args)
+
+
+@patch('pyreqtest.core.method_dispatcher', return_value=Response)
+def test_send_http_request(mock):
+    mock.return_value.status_code = 200
+    args = ('get', 'http://localhost:8080/users')
+    response = core.send_http_request(*args)
+
+    assert response.status_code == 200
