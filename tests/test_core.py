@@ -48,3 +48,14 @@ def test_send_http_request(mock):
     response = core.send_http_request(*args)
 
     assert response.status_code == 200
+
+
+def test_extract_http_response_content():
+    response = Response()
+    response.status_code = 200
+    response.headers = {'Content-Type': 'application/json'}
+    response_content = core.extract_http_response_content(response)
+
+    assert all(
+        key in response_content for key in ('status_code', 'headers', 'body')
+    )
