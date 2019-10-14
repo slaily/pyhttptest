@@ -12,6 +12,7 @@ pytest = "*"
 ijson = "*"
 jsonschema = "*"
 requests = "*"
+tabulate = "*"
 
 [requires]
 python_version = "3.7"
