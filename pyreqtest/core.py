@@ -1,5 +1,7 @@
 import ijson.backends.yajl2 as ijson
 
+from requests import Response
+
 from pyreqtest import utils
 from pyreqtest import constants
 from pyreqtest.decorators import check_file_extension
@@ -83,3 +85,28 @@ def send_http_request(*args, **kwargs):
     :rtype: :class:`requests.Response` or `None`
     """
     return method_dispatcher(*args, **kwargs)
+
+
+def extract_http_response_content(response):
+    """Extracts given :class:`requests.Response` instance
+    attributes.
+
+    Аttributes that are extracted from the instance are following:
+
+        - HTTP Status Code
+        - HTTP Headers
+        - HTTP Body
+
+    :param requests.Response response: Instance.
+
+    :returns: Content of HTTP Response.
+    :rtype: `dict`
+    """
+    if not isinstance(response, Response):
+        return None
+
+    return {
+        'status_code': response.status_code,
+        'headers': response.headers,
+        'body': response.text
+    }
