@@ -32,6 +32,6 @@ def test_process_data_for_print():
         'headers': '{Content-Type: application/json}',
         'body': 'Lorem Ipsum'
     }
-    data_for_print = printer.process_data_for_print(**test_kwargs)
+    data_for_print = printer.prepare_data_for_print(**test_kwargs)
 
     assert 'HTTP Response Status Code' in data_for_print
