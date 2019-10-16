@@ -1,13 +1,14 @@
 from tabulate import tabulate
 
 from pyreqtest.constants import (
+    SLICE_TO_INDEX,
     PRINTER_HEADERS,
     PRINTER_HEADERS_DATA_KEYS
 )
 from pyreqtest.utils import extract_properties_values_from_json
 
 
-def _slice_str_args(*args, slice_to=100):
+def _slice_str_args(*args, slice_to=SLICE_TO_INDEX):
     """Given `str` arguments are sliced to the specified length.
 
     :param args: Arguments in `str` type.
@@ -52,7 +53,7 @@ def prepare_data_for_print(**kwargs):
     """Wrapper function responsible to take the data, push it
     through several processes to prepare it for print.
 
-    :param kwargs: Data.
+    :param kwargs: Data in format key/value.
 
     :returns: Data for print.
     :rtype: `str`

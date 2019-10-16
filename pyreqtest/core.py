@@ -1,11 +1,15 @@
+from json import dumps
+
 import ijson.backends.yajl2 as ijson
 
+from click import echo
 from requests import Response
 
 from pyreqtest import utils
 from pyreqtest import constants
-from pyreqtest.decorators import check_file_extension
 from pyreqtest.http import method_dispatcher
+from pyreqtest.printer import prepare_data_for_print
+from pyreqtest.decorators import check_file_extension
 
 
 @check_file_extension
@@ -106,7 +110,21 @@ def extract_http_response_content(response):
         return None
 
     return {
-        'status_code': response.status_code,
-        'headers': response.headers,
+        'status_code': str(response.status_code),
+        'headers': dumps(response.headers, sort_keys=True, indent=4),
         'body': response.text
     }
+
+
+def printout_result(**kwargs):
+    """Prints the result to the stdout.
+
+    param kwargs: Data in format key/value.
+
+    :returns: None.
+    :rtype: `None`
+    """
+    data_for_print = prepare_data_for_print(**kwargs)
+    echo(data_for_print)
+
+    return None
