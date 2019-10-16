@@ -59,3 +59,15 @@ def test_extract_http_response_content():
     assert all(
         key in response_content for key in ('status_code', 'headers', 'body')
     )
+
+
+def test_printout_result():
+    test_kwargs = {
+        'name': 'Test: process data for print',
+        'status_code': '200',
+        'headers': '{Content-Type: application/json}',
+        'body': 'Lorem Ipsum'
+    }
+    result = core.printout_result(**test_kwargs)
+
+    assert result is None
