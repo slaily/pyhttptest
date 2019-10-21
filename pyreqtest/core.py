@@ -111,7 +111,7 @@ def extract_http_response_content(response):
 
     return {
         'status_code': str(response.status_code),
-        'headers': dumps(response.headers, sort_keys=True, indent=4),
+        'headers': dumps(dict(response.headers), indent=2),
         'body': response.text
     }
 
