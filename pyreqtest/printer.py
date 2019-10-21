@@ -45,7 +45,7 @@ def _format_data_as_tabular(*args, headers=PRINTER_HEADERS):
     return tabulate(
         two_dimensional_array,
         headers,
-        tablefmt="fancy_grid"
+        tablefmt='fancy_grid',
     )
 
 

@@ -3,7 +3,6 @@ import sys
 import requests
 
 from pyreqtest import constants
-from pyreqtest.logger import logger
 from pyreqtest.exceptions import HTTPMethodNotSupportedError
 
 
@@ -41,9 +40,4 @@ def get(*args, **kwargs):
     url = args[1]
     kwargs.setdefault('allow_redirects', True)
 
-    try:
-        return requests.get(url, **kwargs)
-    except Exception as exc:
-        logger.exception(str(exc))
-
-    return None
+    return requests.get(url, **kwargs)
