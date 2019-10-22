@@ -38,7 +38,7 @@ Examples
 
 Create a .json file and define a test case like an example:
 
-`FILE: GET_USERS.json`
+``FILE: GET_USERS.json``
 
 .. code-block:: json
 
