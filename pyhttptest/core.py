@@ -5,11 +5,11 @@ import ijson.backends.yajl2 as ijson
 from click import echo
 from requests import Response
 
-from pyreqtest import utils
-from pyreqtest import constants
-from pyreqtest.http import method_dispatcher
-from pyreqtest.printer import prepare_data_for_print
-from pyreqtest.decorators import check_file_extension
+from pyhttptest import utils
+from pyhttptest import constants
+from pyhttptest.http import method_dispatcher
+from pyhttptest.printer import prepare_data_for_print
+from pyhttptest.decorators import check_file_extension
 
 
 @check_file_extension

@@ -4,8 +4,8 @@ import pytest
 
 from requests import Response
 
-from pyreqtest import http
-from pyreqtest.exceptions import HTTPMethodNotSupportedError
+from pyhttptest import http
+from pyhttptest.exceptions import HTTPMethodNotSupportedError
 
 
 def test_method_dispatcher():
@@ -18,7 +18,7 @@ def test_method_dispatcher():
     assert exception_message == str(exc.value)
 
 
-@patch('pyreqtest.http.requests.get', return_value=Response)
+@patch('pyhttptest.http.requests.get', return_value=Response)
 def test_get(mock):
     mock.return_value.status_code = 200
     args = ('get', 'http://localhost:8080/users')

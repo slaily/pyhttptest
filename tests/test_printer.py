@@ -1,4 +1,4 @@
-from pyreqtest import printer
+from pyhttptest import printer
 
 
 def test_slice_str_args():
@@ -18,7 +18,7 @@ def test_format_data_as_tabular():
         'Test: Extract all users',
         '200',
         '{Content-Type: application/json}',
-        '{username: pyreqtest}'
+        '{username: pyhttptest}'
     )
     tabular_data = printer._format_data_as_tabular(*data)
 

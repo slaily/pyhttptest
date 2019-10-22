@@ -1,7 +1,7 @@
 from urllib.parse import urlparse
 from http.client import InvalidURL
 
-from pyreqtest.decorators import validate_extract_json_properties_func_args
+from pyhttptest.decorators import validate_extract_json_properties_func_args
 
 
 @validate_extract_json_properties_func_args

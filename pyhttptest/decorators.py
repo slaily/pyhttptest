@@ -1,7 +1,7 @@
 from functools import wraps
 
-from pyreqtest.constants import JSON_FILE_EXTENSION
-from pyreqtest.exceptions import FileExtensionError
+from pyhttptest.constants import JSON_FILE_EXTENSION
+from pyhttptest.exceptions import FileExtensionError
 
 
 def check_file_extension(func):

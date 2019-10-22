@@ -3,7 +3,7 @@ import pytest
 from jsonschema import validate
 from jsonschema.exceptions import ValidationError
 
-from pyreqtest.http_schemas.base_schema import base_schema
+from pyhttptest.http_schemas.base_schema import base_schema
 
 
 def test_schema_with_valid_data():

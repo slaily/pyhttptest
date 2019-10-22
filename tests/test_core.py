@@ -4,8 +4,8 @@ import pytest
 
 from requests import Response
 
-from pyreqtest import core
-from pyreqtest.exceptions import FileExtensionError
+from pyhttptest import core
+from pyhttptest.exceptions import FileExtensionError
 
 
 def test_load_json_from_file():
@@ -41,7 +41,7 @@ def test_prepare_request_args():
     assert sorted(request_args) == sorted(expected_args)
 
 
-@patch('pyreqtest.core.method_dispatcher', return_value=Response)
+@patch('pyhttptest.core.method_dispatcher', return_value=Response)
 def test_send_http_request(mock):
     mock.return_value.status_code = 200
     args = ('get', 'http://localhost:8080/users')

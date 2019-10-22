@@ -1,7 +1,7 @@
 import pytest
 
-from pyreqtest import decorators
-from pyreqtest.exceptions import FileExtensionError
+from pyhttptest import decorators
+from pyhttptest.exceptions import FileExtensionError
 
 
 def test_check_file_extension():

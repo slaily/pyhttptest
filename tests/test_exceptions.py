@@ -1,4 +1,4 @@
-from pyreqtest import exceptions
+from pyhttptest import exceptions
 
 
 def test_file_extension_error_exception():

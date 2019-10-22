@@ -1,11 +1,11 @@
 from tabulate import tabulate
 
-from pyreqtest.constants import (
+from pyhttptest.constants import (
     SLICE_TO_INDEX,
     PRINTER_HEADERS,
     PRINTER_HEADERS_DATA_KEYS
 )
-from pyreqtest.utils import extract_properties_values_from_json
+from pyhttptest.utils import extract_properties_values_from_json
 
 
 def _slice_str_args(*args, slice_to=SLICE_TO_INDEX):
@@ -34,7 +34,7 @@ def _format_data_as_tabular(*args, headers=PRINTER_HEADERS):
         ╒═════════════════════════╤═════════════╤══════════════════════════════════════════════════╤══════════════════════════════╕
         │                         │   Test name │ HTTP Response Status CodeHTTP Response Headers   │ HTTP Response Message Body   │
         ╞═════════════════════════╪═════════════╪══════════════════════════════════════════════════╪══════════════════════════════╡
-        │ Test: Extract all users │         200 │ {Content-Type: application/json}                 │ {username: pyreqtest}        │
+        │ Test: Extract all users │         200 │ {Content-Type: application/json}                 │ {username: pyhttptest}        │
         ╘═════════════════════════╧═════════════╧══════════════════════════════════════════════════╧══════════════════════════════╛
 
     :returns: Data in tabular format.

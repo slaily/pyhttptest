@@ -1,6 +1,6 @@
 from click.testing import CliRunner
 
-from pyreqtest import cli
+from pyhttptest import cli
 
 
 def test_execute():

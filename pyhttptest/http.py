@@ -2,8 +2,8 @@ import sys
 
 import requests
 
-from pyreqtest import constants
-from pyreqtest.exceptions import HTTPMethodNotSupportedError
+from pyhttptest import constants
+from pyhttptest.exceptions import HTTPMethodNotSupportedError
 
 
 def method_dispatcher(*args, **kwargs):

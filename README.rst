@@ -1,12 +1,12 @@
-pyreqtest: HTTP tests over RESTful APIs✨
+pyhttptest: HTTP tests over RESTful APIs✨
 #########################################
 
 Pissed about writing test scripts against your RESTFul APIs anytime?
 Describe an HTTP Requests test cases in a simplest and widely used format JSON within a file.
 Run one command and gain a summary report.
 
-.. image:: https://www.dropbox.com/s/xas6p7mwv400xjz/pyreqtest-cline.png?raw=1
-    :alt: pyreqtest in the command line
+.. image:: https://www.dropbox.com/s/y0rkhr0qfkwf1u4/pyhttptest-cline.png?raw=1
+    :alt: pyhttptest in the command line
     :width: 100%
     :align: center
 
@@ -18,7 +18,7 @@ Recommended installation method is to use ``pip``:
 
 .. code-block:: bash
 
-    $ pip install pyreqtest
+    $ pip install pyhttptest
 
 Python version **3+** is required.
 
@@ -28,9 +28,9 @@ Usage
 
 .. code-block:: bash
 
-    $ pyreqtest execute FILE
+    $ pyhttptest execute FILE
 
-See also ``pyreqtest --help``.
+See also ``pyhttptest --help``.
 
 
 Examples
@@ -59,7 +59,7 @@ Execute a test case:
 
 .. code-block:: bash
 
-    $ pyreqtest execute FILE_PATH/GET_USERS.json
+    $ pyhttptest execute FILE_PATH/GET_USERS.json
 
 
 Dependencies
@@ -82,19 +82,19 @@ Under the hood, HTTPie uses these two amazing libraries:
 Contributing
 ------------
 
-See `CONTRIBUTING.rst <https://github.com/slaily/pyreqtest/CONTRIBUTING.rst>`_.
+See `CONTRIBUTING <https://github.com/slaily/pyhttptest/CONTRIBUTING.rst>`_.
 
 
 Change log
 ----------
 
-See `CHANGELOG <https://github.com/slaily/pyreqtest/blob/master/CHANGELOG>`_.
+See `CHANGELOG <https://github.com/slaily/pyhttptest/blob/master/CHANGELOG>`_.
 
 
 Licence
 -------
 
-BSD-3-Clause: `LICENSE <https://github.com/slaily/pyreqtest/blob/master/LICENSE>`_.
+BSD-3-Clause: `LICENSE <https://github.com/slaily/pyhttptest/blob/master/LICENSE>`_.
 
 
 Authors

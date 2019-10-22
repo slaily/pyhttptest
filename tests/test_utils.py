@@ -2,7 +2,7 @@ import pytest
 
 from http.client import InvalidURL
 
-from pyreqtest import utils
+from pyhttptest import utils
 
 
 def test_extract_properties_values_from_json():

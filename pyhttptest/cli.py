@@ -1,6 +1,6 @@
 import click
 
-from pyreqtest import core
+from pyhttptest import core
 
 
 @click.group()

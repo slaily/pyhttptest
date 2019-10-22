@@ -4,7 +4,7 @@
 # This is the base schema that will be extended from the HTTP Methods
 # schemas::
 #
-#     ... GET - :file:`pyreqtest/http_schemas/get_schema.py`
+#     ... GET - :file:`pyhttptest/http_schemas/get_schema.py`
 #
 # The purpose is to validate input JSON file content
 # under the schema.
