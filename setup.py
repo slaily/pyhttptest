@@ -4,19 +4,24 @@ from setuptools import (
 )
 
 
+with open('README.rst', 'r', encoding='utf8') as file:
+    readme = file.read()
+
+
 setup(
-    name='pyreqtest',
+    name='pyhttptest',
     version='0.1a',
     author='Iliyan Slavov',
     author_email='slavov.iliyan96@gmail.com',
     description='A command-line tool for HTTP tests over RESTful APIs',
+    long_description=readme,
     keywords='HTTP test RESTFul API JSON',
     license='BSD 3-Clause License',
-    url='https://github.com/slaily/pyreqtest',
+    url='https://github.com/slaily/pyhttptest',
     project_urls={
-        'Issues': 'https://github.com/slaily/pyreqtest/issues',
+        'Issues': 'https://github.com/slaily/pyhttptest/issues',
     },
-    packages=find_namespace_packages(include=['pyreqtest', 'pyreqtest.*']),
+    packages=find_namespace_packages(include=['pyhttptest', 'pyhttptest.*']),
     install_requires=[
         'click==7.0',
         'ijson==2.5.1',
@@ -28,7 +33,7 @@ setup(
     python_requires='>=3',
     entry_points={
         'console_scripts': [
-            'pyreqtest = pyreqtest.cli:main',
+            'pyhttptest = pyhttptest.cli:main',
         ]
     },
     classifiers=[

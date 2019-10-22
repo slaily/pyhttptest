@@ -5,7 +5,7 @@ Pissed about writing test scripts against your RESTFul APIs anytime?
 Describe an HTTP Requests test cases in a simplest and widely used format JSON within a file.
 Run one command and gain a summary report.
 
-.. image:: https://www.dropbox.com/s/y0rkhr0qfkwf1u4/pyhttptest-cline.png?raw=1
+.. image:: https://www.dropbox.com/s/algkq1lswqpfx53/pyhttptest-cli.png?raw=1
     :alt: pyhttptest in the command line
     :width: 100%
     :align: center
