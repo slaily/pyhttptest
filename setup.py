@@ -25,6 +25,7 @@ setup(
         'tabulate==0.8.5'
     ],
     tests_require='pytest',
+    python_requires='>=3',
     entry_points={
         'console_scripts': [
             'pyreqtest = pyreqtest.cli:main',
