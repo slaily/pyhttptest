@@ -82,7 +82,7 @@ Under the hood, HTTPie uses these two amazing libraries:
 Contributing
 ------------
 
-See `CONTRIBUTING <https://github.com/slaily/pyhttptest/CONTRIBUTING.rst>`_.
+See `CONTRIBUTING <https://github.com/slaily/pyhttptest/blob/master/CONTRIBUTING.rst>`_.
 
 
 Change log
