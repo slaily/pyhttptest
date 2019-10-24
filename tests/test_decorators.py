@@ -59,3 +59,18 @@ def test_extract_properties_values_from_json_with_wrong_keys_format():
     part_of_exc_msg = 'Not a type of {type}'.format(type=type(json_keys))
 
     assert part_of_exc_msg in str(exc.value)
+
+
+def test_validate_data_against_json_schema():
+    func = decorators.validate_data_against_json_schema(
+        lambda data: data
+    )
+    data = {
+        "name": "TEST: List all users",
+        "verb": "GET",
+        "endpoint": "users",
+        "host": "https://localhost.com",
+    }
+    func_result = func(data)
+
+    assert id(func_result) == id(data)
