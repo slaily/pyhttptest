@@ -65,7 +65,7 @@ Execute a test case:
 Dependencies
 ~~~~~~~~~~~~
 
-Under the hood, HTTPie uses these two amazing libraries:
+Under the hood, pyhttptest uses these amazing libraries:
 
 * `ijson <https://pypi.org/project/ijson/>`_
   — Iterative JSON parser with a standard Python iterator interface
