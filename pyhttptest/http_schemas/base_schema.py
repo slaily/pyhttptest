@@ -14,7 +14,7 @@ base_schema = {
         'name': {'type': 'string'},
         'verb': {
             'type': 'string',
-            'enum': ['GET']
+            'enum': ['GET', 'POST']
         },
         'endpoint': {'type': 'string'},
         'host': {'type': 'string'},
@@ -25,6 +25,8 @@ base_schema = {
                 'Content-Encoding': {'type': 'string'},
                 'Content-Language': {'type': 'string'},
                 'Content-Location': {'type': 'string'},
+                'Content-Length': {'type': 'number'},
+                'Content-Range': {'type': 'string'},
                 'Cache-Control': {'type': 'string'},
                 'Expect': {'type': 'string'},
                 'Host': {'type': 'string'},
@@ -48,7 +50,9 @@ base_schema = {
                 'Proxy-Authorization': {'type': 'string'},
                 'From': {'type': 'string'},
                 'Referer': {'type': 'string'},
-                'User-Agent': {'type': 'string'}
+                'User-Agent': {'type': 'string'},
+                'Trailer': {'type': 'string'},
+                'Transfer-Encoding': {'type': 'string'}
             }
         },
     },

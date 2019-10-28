@@ -41,3 +41,23 @@ def get(*args, **kwargs):
     kwargs.setdefault('allow_redirects', True)
 
     return requests.get(url, **kwargs)
+
+
+def post(*args, **kwargs):
+    """Sends an HTTP POST request.
+
+    :param args: URL argument on the first index(args[1]).
+    :param kwargs: Optional arguments that ``requests.post`` takes.
+
+    :returns: :class:`Response` object or `None` if an error occurred.
+    :rtype: :class:`requests.Response` or `None`
+    """
+    url = args[1]
+    headers = kwargs.get('headers', None)
+    payload = kwargs.get('payload', None)
+
+    return requests.post(
+        url,
+        data=payload,
+        headers=headers
+    )
