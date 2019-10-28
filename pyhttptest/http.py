@@ -38,8 +38,8 @@ def get(*args, **kwargs):
     :rtype: :class:`requests.Response` or `None`
     """
     url = args[1]
-    headers = kwargs.get('headers', None)
     query_string = kwargs.get('query_string', None)
+    headers = kwargs.get('headers', None)
 
     return requests.get(url, params=query_string, headers=headers)
 
@@ -54,11 +54,13 @@ def post(*args, **kwargs):
     :rtype: :class:`requests.Response` or `None`
     """
     url = args[1]
-    headers = kwargs.get('headers', None)
+    query_string = kwargs.get('query_string', None)
     payload = kwargs.get('payload', None)
+    headers = kwargs.get('headers', None)
 
     return requests.post(
         url,
+        params=query_string,
         data=payload,
         headers=headers
     )
