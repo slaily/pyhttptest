@@ -10,7 +10,7 @@ with open('README.rst', 'r', encoding='utf8') as file:
 
 setup(
     name='pyhttptest',
-    version='0.1a',
+    version='0.1b',
     author='Iliyan Slavov',
     author_email='slavov.iliyan96@gmail.com',
     description='A command-line tool for HTTP tests over RESTful APIs',
@@ -37,7 +37,7 @@ setup(
         ]
     },
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
