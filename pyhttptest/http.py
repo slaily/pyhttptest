@@ -38,9 +38,10 @@ def get(*args, **kwargs):
     :rtype: :class:`requests.Response` or `None`
     """
     url = args[1]
-    kwargs.setdefault('allow_redirects', True)
+    headers = kwargs.get('headers', None)
+    query_string = kwargs.get('query_string', None)
 
-    return requests.get(url, **kwargs)
+    return requests.get(url, params=query_string, headers=headers)
 
 
 def post(*args, **kwargs):
