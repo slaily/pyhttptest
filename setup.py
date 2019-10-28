@@ -1,3 +1,4 @@
+from re import search
 from setuptools import (
     setup,
     find_namespace_packages
@@ -7,10 +8,15 @@ from setuptools import (
 with open('README.rst', 'r', encoding='utf8') as file:
     readme = file.read()
 
+with open("pyhttptest/__init__.py", "rt", encoding="utf8") as file:
+    version = search(
+        r"__version__ = ['\"]([^'\"]+)['\"]",
+        file.read()
+    ).group(1)
 
 setup(
     name='pyhttptest',
-    version='0.1b',
+    version=version,
     author='Iliyan Slavov',
     author_email='slavov.iliyan96@gmail.com',
     description='A command-line tool for HTTP tests over RESTful APIs',
