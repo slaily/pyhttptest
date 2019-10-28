@@ -25,3 +25,12 @@ def test_get(mock):
     response = http.get(*args)
 
     assert response.status_code == 200
+
+
+@patch('pyhttptest.http.requests.post', return_value=Response)
+def test_post(mock):
+    mock.return_value.status_code = 200
+    args = ('post', 'http://localhost:8080/users')
+    response = http.post(*args)
+
+    assert response.status_code == 200
