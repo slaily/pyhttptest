@@ -11,6 +11,9 @@ post_schema['properties'].update(
     {
         'payload': {
             'type': 'object'
+        },
+        'query_string': {
+            'type': 'object'
         }
     }
 )

@@ -15,7 +15,6 @@ def test_schema_with_valid_data():
             }
         }
     }
-
     result = validate(instance=data, schema=post_schema)
 
     assert result is None
