@@ -43,3 +43,12 @@ def test_put(mock):
     response = http.put(*args)
 
     assert response.status_code == 204
+
+
+@patch('pyhttptest.http.requests.delete', return_value=Response)
+def test_delete(mock):
+    mock.return_value.status_code = 204
+    args = ('delete', 'http://localhost:8080/users/1')
+    response = http.delete(*args)
+
+    assert response.status_code == 204
