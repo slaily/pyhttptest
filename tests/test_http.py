@@ -34,3 +34,12 @@ def test_post(mock):
     response = http.post(*args)
 
     assert response.status_code == 200
+
+
+@patch('pyhttptest.http.requests.put', return_value=Response)
+def test_put(mock):
+    mock.return_value.status_code = 204
+    args = ('put', 'http://localhost:8080/users/1')
+    response = http.put(*args)
+
+    assert response.status_code == 204
