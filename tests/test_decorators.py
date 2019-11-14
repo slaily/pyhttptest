@@ -1,7 +1,10 @@
 import pytest
 
 from pyhttptest import decorators
-from pyhttptest.exceptions import FileExtensionError
+from pyhttptest.exceptions import (
+    FileExtensionError,
+    HTTPMethodNotSupportedError,
+)
 
 
 def test_check_file_extension():
@@ -74,3 +77,41 @@ def test_validate_data_against_json_schema():
     func_result = func(data)
 
     assert id(func_result) == id(data)
+
+
+def test_validate_data_against_json_schema_with_not_supported_argument_type():
+    with pytest.raises(TypeError) as exc:
+        func = decorators.validate_data_against_json_schema(
+            lambda data: data
+        )
+        data = {
+            "TEST: List all users",
+            "GET",
+            "users",
+            "https://localhost.com",
+        }
+        func(data)
+
+    part_of_exc_msg = 'Not a type of {type}'.format(type=type(data))
+
+    assert part_of_exc_msg in str(exc.value)
+
+
+def test_validate_data_against_json_schema_with_not_supported_http_method():
+    with pytest.raises(HTTPMethodNotSupportedError) as exc:
+        func = decorators.validate_data_against_json_schema(
+            lambda data: data
+        )
+        data = {
+            "name": "TEST: List all users",
+            "verb": "HEAD",
+            "endpoint": "users",
+            "host": "https://localhost.com",
+        }
+        func(data)
+
+    part_of_exc_msg = "An HTTP method ('{http_method}') is not".format(
+        http_method=data['verb']
+    )
+
+    assert part_of_exc_msg in str(exc.value)

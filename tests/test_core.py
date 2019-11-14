@@ -41,6 +41,16 @@ def test_prepare_request_args():
     assert sorted(request_args) == sorted(expected_args)
 
 
+def test_prepare_request_args_with_invalid_arguments():
+    args = (
+        'users',
+        'http://localhost:8080'
+    )
+    request_args = core.prepare_request_args(*args)
+
+    assert request_args is None
+
+
 @patch('pyhttptest.core.method_dispatcher', return_value=Response)
 def test_send_http_request(mock):
     mock.return_value.status_code = 200
@@ -59,6 +69,19 @@ def test_extract_http_response_content():
     assert all(
         key in response_content for key in ('status_code', 'headers', 'body')
     )
+
+
+def test_extract_http_response_content_with_not_supported_argument_type():
+    response = {
+        'status_code': 200,
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        'body': '<h1>Hello, pyhttptest!</h1>'
+    }
+    response_content = core.extract_http_response_content(response)
+
+    assert response_content is None
 
 
 def test_printout_result():
