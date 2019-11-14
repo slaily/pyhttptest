@@ -29,7 +29,7 @@ def method_dispatcher(*args, **kwargs):
 
 
 def get(*args, **kwargs):
-    """Sends an HTTP GET request.
+    """Sends an HTTP GET Request.
 
     :param args: URL argument on the first index(args[1]).
     :param kwargs: Optional arguments that ``requests.get`` takes.
@@ -45,7 +45,7 @@ def get(*args, **kwargs):
 
 
 def post(*args, **kwargs):
-    """Sends an HTTP POST request.
+    """Sends an HTTP POST Request.
 
     :param args: URL argument on the first index(args[1]).
     :param kwargs: Optional arguments that ``requests.post`` takes.
@@ -59,6 +59,28 @@ def post(*args, **kwargs):
     headers = kwargs.get('headers', None)
 
     return requests.post(
+        url,
+        params=query_string,
+        data=payload,
+        headers=headers
+    )
+
+
+def put(*args, **kwargs):
+    """Sends an HTTP PUT Request.
+
+    :param args: URL argument on the first index(args[1]).
+    :param kwargs: Optional arguments that ``requests.put`` takes.
+
+    :returns: :class:`Response` object or `None` if an error occurred.
+    :rtype: :class:`requests.Response` or `None`
+    """
+    url = args[1]
+    query_string = kwargs.get('query_string', None)
+    payload = kwargs.get('payload', None)
+    headers = kwargs.get('headers', None)
+
+    return requests.put(
         url,
         params=query_string,
         data=payload,

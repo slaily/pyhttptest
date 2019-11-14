@@ -14,7 +14,7 @@ base_schema = {
         'name': {'type': 'string'},
         'verb': {
             'type': 'string',
-            'enum': ['GET', 'POST']
+            'enum': ['GET', 'POST', 'PUT']
         },
         'endpoint': {'type': 'string'},
         'host': {'type': 'string'},
