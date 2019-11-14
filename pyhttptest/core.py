@@ -69,7 +69,7 @@ def prepare_request_args(*args):
     :returns: Transformed arguments for HTTP Request.
     :rtype: `tuple`
     """
-    if not args and len(args) != 4:
+    if not args or len(args) != 4:
         return None
 
     _, http_method, endpoint, host = args

@@ -121,6 +121,7 @@ def validate_data_against_json_schema(func):
                     )
                 )
             )
+
         if 'verb' not in data or data['verb'].lower() not in HTTP_METHOD_NAMES:
             raise HTTPMethodNotSupportedError(data.get('verb', 'None'))
 
