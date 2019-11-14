@@ -86,3 +86,19 @@ def put(*args, **kwargs):
         data=payload,
         headers=headers
     )
+
+
+def delete(*args, **kwargs):
+    """Sends an HTTP DELETE Request.
+
+    :param args: URL argument on the first index(args[1]).
+    :param kwargs: Optional arguments that ``requests.delete`` takes.
+
+    :returns: :class:`Response` object or `None` if an error occurred.
+    :rtype: :class:`requests.Response` or `None`
+    """
+    url = args[1]
+    query_string = kwargs.get('query_string', None)
+    headers = kwargs.get('headers', None)
+
+    return requests.delete(url, params=query_string, headers=headers)
