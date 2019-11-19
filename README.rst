@@ -85,10 +85,10 @@ Contributing
 See `CONTRIBUTING <https://github.com/slaily/pyhttptest/blob/master/CONTRIBUTING.rst>`_.
 
 
-Change log
+Changelog
 ----------
 
-See `CHANGELOG <https://github.com/slaily/pyhttptest/blob/master/CHANGELOG>`_.
+See `CHANGELOG <https://github.com/slaily/pyhttptest/blob/master/CHANGELOG.rst>`_.
 
 
 Licence
