@@ -34,7 +34,7 @@ def _format_data_as_tabular(*args, headers=PRINTER_HEADERS):
         ╒═════════════════════════╤═════════════╤══════════════════════════════════════════════════╤══════════════════════════════╕
         │                         │   Test name │ HTTP Response Status CodeHTTP Response Headers   │ HTTP Response Message Body   │
         ╞═════════════════════════╪═════════════╪══════════════════════════════════════════════════╪══════════════════════════════╡
-        │ Test: Extract all users │         200 │ {Content-Type: application/json}                 │ {username: pyhttptest}        │
+        │ Test: Extract all users │         200 │ {Content-Type: application/json}                 │ {username: pyhttptest}       │
         ╘═════════════════════════╧═════════════╧══════════════════════════════════════════════════╧══════════════════════════════╛
 
     :returns: Data in tabular format.

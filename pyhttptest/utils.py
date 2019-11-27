@@ -19,9 +19,9 @@ def extract_properties_values_from_json(data, keys):
     .. code-block:: python
 
         data = {
-            "verb": "GET",
-            "endpoint": "users",
-            "host": "http://localhost:8080"
+            'verb': 'GET',
+            'endpoint': 'users',
+            'host': 'http://localhost:8080'
             ...
         }
 

@@ -18,7 +18,7 @@ def test_load_json_from_file_with_not_supported_file_extension():
     with pytest.raises(FileExtensionError) as exc:
         core.load_json_from_file('data/HTTP_GET.yaml')
 
-    assert "is not supported" in str(exc.value)
+    assert 'is not supported' in str(exc.value)
 
 
 def test_extract_json_data():

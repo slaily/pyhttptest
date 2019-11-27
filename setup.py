@@ -8,7 +8,7 @@ from setuptools import (
 with open('README.rst', 'r', encoding='utf8') as file:
     readme = file.read()
 
-with open("pyhttptest/__init__.py", "rt", encoding="utf8") as file:
+with open('pyhttptest/__init__.py', 'rt', encoding='utf8') as file:
     version = search(
         r"__version__ = ['\"]([^'\"]+)['\"]",
         file.read()

@@ -23,7 +23,7 @@ def test_check_file_extension_with_not_supported_file_extension():
         )
         func('test.yaml')
 
-    assert "is not supported" in str(exc.value)
+    assert 'is not supported' in str(exc.value)
 
 
 def test_validate_extract_json_properties_func_args():
@@ -69,10 +69,10 @@ def test_validate_data_against_json_schema():
         lambda data: data
     )
     data = {
-        "name": "TEST: List all users",
-        "verb": "GET",
-        "endpoint": "users",
-        "host": "https://localhost.com",
+        'name': 'TEST: List all users',
+        'verb': 'GET',
+        'endpoint': 'users',
+        'host': 'https://localhost.com',
     }
     func_result = func(data)
 
@@ -85,10 +85,10 @@ def test_validate_data_against_json_schema_with_not_supported_argument_type():
             lambda data: data
         )
         data = {
-            "TEST: List all users",
-            "GET",
-            "users",
-            "https://localhost.com",
+            'TEST: List all users',
+            'GET',
+            'users',
+            'https://localhost.com',
         }
         func(data)
 
@@ -103,10 +103,10 @@ def test_validate_data_against_json_schema_with_not_supported_http_method():
             lambda data: data
         )
         data = {
-            "name": "TEST: List all users",
-            "verb": "HEAD",
-            "endpoint": "users",
-            "host": "https://localhost.com",
+            'name': 'TEST: List all users',
+            'verb': 'HEAD',
+            'endpoint': 'users',
+            'host': 'https://localhost.com',
         }
         func(data)
 
