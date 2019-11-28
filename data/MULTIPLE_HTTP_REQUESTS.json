@@ -1,0 +1,23 @@
+[
+  {
+    "name": "TEST: List all users",
+    "verb": "GET",
+    "endpoint": "users",
+    "host": "https://github.com",
+    "headers": {
+      "Accept-Language": "en-US"
+    },
+    "query_string": {
+      "limit": 5
+    }
+  },
+  {
+    "name": "TEST: Create an HTML bin",
+    "verb": "POST",
+    "endpoint": "post",
+    "host": "https://httpbin.org",
+    "payload": {
+      "hello": "world!"
+    }
+  }
+]
