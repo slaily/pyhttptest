@@ -8,22 +8,22 @@ from pyhttptest import core
 from pyhttptest.exceptions import FileExtensionError
 
 
-def test_load_json_from_file():
-    json_dict = core.load_json_from_file('data/HTTP_GET.json')
+def test_load_content_from_json_file():
+    content = core.load_content_from_json_file('data/HTTP_GET.json')
 
-    assert isinstance(json_dict, dict)
+    assert isinstance(content[0], dict)
 
 
-def test_load_json_from_file_with_not_supported_file_extension():
+def test_load_content_from_json_file_with_not_supported_file_extension():
     with pytest.raises(FileExtensionError) as exc:
-        core.load_json_from_file('data/HTTP_GET.yaml')
+        core.load_content_from_json_file('data/HTTP_GET.yaml')
 
     assert 'is not supported' in str(exc.value)
 
 
 def test_extract_json_data():
-    data = core.load_json_from_file('data/HTTP_GET.json')
-    required_args, optional_kwargs = core.extract_json_data(data)
+    content = core.load_content_from_json_file('data/HTTP_GET.json')
+    required_args, optional_kwargs = core.extract_json_data(content[0])
 
     assert isinstance(required_args, tuple) and isinstance(optional_kwargs, dict)
 
@@ -96,7 +96,9 @@ def test_printout_result():
     assert result is None
 
 
-def test_load_content_from_file_with_mupltiple_dicts():
-    content, is_content_iterable = core.load_content_from_file('data/MULTIPLE_HTTP_REQUESTS.json')
+def test_load_content_from_json_file_with_multiple_http_requests_scenarios():
+    content = core.load_content_from_json_file(
+        'data/MULTIPLE_HTTP_REQUESTS.json'
+    )
 
-    assert is_content_iterable
+    assert isinstance(content[0], list)
