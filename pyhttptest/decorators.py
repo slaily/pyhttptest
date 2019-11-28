@@ -29,7 +29,7 @@ def check_file_extension(func):
     .. code-block:: python
 
         @check_file_extension
-        def load_json_from_file(file_path):
+        def load_content_from_json_file(file_path):
             ...
 
     :raises FileExtensionError: If the file extension is not '.json'.
