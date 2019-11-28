@@ -94,3 +94,9 @@ def test_printout_result():
     result = core.printout_result(**test_kwargs)
 
     assert result is None
+
+
+def test_load_content_from_file_with_mupltiple_dicts():
+    content, is_content_iterable = core.load_content_from_file('data/MULTIPLE_HTTP_REQUESTS.json')
+
+    assert is_content_iterable
