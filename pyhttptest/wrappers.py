@@ -18,3 +18,19 @@ def execute_single_test_scenario(json_data):
     response_content['name'] = json_data['name']
 
     return response_content
+
+
+def execute_multiple_test_scenarios(list_of_dicts):
+    """Wrapper function that comprises functionality
+    to execute multiple tests scenarios.
+
+    :param list list_of_dicts: List with values of type `dict`.
+
+    :returns: Results of the tests scenarios.
+    :rtype: `list'
+    """
+    results = [
+        execute_single_test_scenario(json_data) for json_data in list_of_dicts
+    ]
+
+    return results
