@@ -8,7 +8,7 @@ from pyhttptest import wrappers
 def test_execute_single_test_scenario(_, mock):
     mock.return_value = {
         'status_code': 200,
-        'headers': {'Content-type': 'application/json'},
+        'headers': {'Content-Type': 'application/json'},
         'body': {'username': 'pyhttptest'}
     }
     json_data = {
@@ -17,9 +17,9 @@ def test_execute_single_test_scenario(_, mock):
         'endpoint': 'users',
         'host': 'http://localhost:8080',
     }
-    result = wrappers.execute_single_test_scenario(json_data)
+    list_of_result = wrappers.execute_single_test_scenario(json_data)
 
-    assert 'name' in result
+    assert len(list_of_result) == 1
 
 
 @patch('pyhttptest.wrappers.core.extract_http_response_content', return_value=dict)
@@ -43,3 +43,17 @@ def test_execute_multiple_test_scenarios(_, mock):
     results = wrappers.execute_multiple_test_scenarios(list_of_dicts)
 
     assert len(results) == 2
+
+
+@patch('pyhttptest.wrappers.core.extract_http_response_content', return_value=dict)
+@patch('pyhttptest.wrappers.core.send_http_request')
+def test_cli_execute(_, mock):
+    mock.return_value = {
+        'name': 'TEST: List all users',
+        'status_code': '200',
+        'headers': '{"Content-Type": "application/json"}',
+        'body': '{"username": "pyhttptest"}'
+    }
+    output = wrappers._execute('data/HTTP_GET.json')
+
+    return isinstance(output, str)
