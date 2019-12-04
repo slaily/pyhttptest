@@ -2,13 +2,11 @@ from json import dumps
 
 import ijson.backends.yajl2 as ijson
 
-from click import echo
 from requests import Response
 
 from pyhttptest import utils
 from pyhttptest import constants
 from pyhttptest.http import method_dispatcher
-from pyhttptest.printer import prepare_data_for_print
 from pyhttptest.decorators import check_file_extension
 
 
@@ -113,17 +111,3 @@ def extract_http_response_content(response):
         'headers': dumps(dict(response.headers), indent=2),
         'body': response.text
     }
-
-
-def printout_result(**kwargs):
-    """Prints the result to the stdout.
-
-    param kwargs: Data in format key/value.
-
-    :returns: None.
-    :rtype: `None`
-    """
-    data_for_print = prepare_data_for_print(**kwargs)
-    echo(data_for_print)
-
-    return None
