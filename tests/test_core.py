@@ -84,18 +84,6 @@ def test_extract_http_response_content_with_not_supported_argument_type():
     assert response_content is None
 
 
-def test_printout_result():
-    test_kwargs = {
-        'name': 'Test: process data for print',
-        'status_code': '200',
-        'headers': '{Content-Type: application/json}',
-        'body': 'Lorem Ipsum'
-    }
-    result = core.printout_result(**test_kwargs)
-
-    assert result is None
-
-
 def test_load_content_from_json_file_with_multiple_http_requests_scenarios():
     content = core.load_content_from_json_file(
         'data/MULTIPLE_HTTP_REQUESTS.json'
