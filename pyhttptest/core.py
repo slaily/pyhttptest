@@ -7,6 +7,7 @@ from requests import Response
 from pyhttptest import utils
 from pyhttptest import constants
 from pyhttptest.http import method_dispatcher
+from pyhttptest.printer import prepare_data_for_print
 from pyhttptest.decorators import check_file_extension
 
 
@@ -111,3 +112,24 @@ def extract_http_response_content(response):
         'headers': dumps(dict(response.headers), indent=2),
         'body': response.text
     }
+
+
+def transform_data_in_tabular_str(data):
+    """Transforms the data into tabular string.
+
+    param list|dict data: An extract of HTTP Response data.
+
+    :returns: A tabular string.
+    :rtype: `str`
+    """
+    if not any(isinstance(data, _type) for _type in [list, dict]):
+        return 'The data is not correctly structured.'
+
+    if isinstance(data, list) and not isinstance(data[0], dict):
+        return 'The list of content is not correctly formatted.'
+
+    if isinstance(data, dict):
+        # Put the `dict` data into a list
+        data = [data]
+
+    return prepare_data_for_print(data)
