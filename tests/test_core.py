@@ -90,3 +90,27 @@ def test_load_content_from_json_file_with_multiple_http_requests_scenarios():
     )
 
     assert isinstance(content[0], list)
+
+
+def test_transform_data_in_tabular_str_with_dict_data():
+    data = {
+        'name': 'Test: process data for print',
+        'status_code': '200',
+        'headers': '{Content-Type: application/json}',
+        'body': 'Lorem Ipsum'
+    }
+    tabular_str = core.transform_data_in_tabular_str(data)
+
+    assert isinstance(tabular_str, str)
+
+
+def test_transform_data_in_tabular_str_with_list_of_dict_data():
+    data = [{
+        'name': 'Test: process data for print',
+        'status_code': '200',
+        'headers': '{Content-Type: application/json}',
+        'body': 'Lorem Ipsum'
+    }]
+    tabular_str = core.transform_data_in_tabular_str(data)
+
+    assert isinstance(tabular_str, str)
