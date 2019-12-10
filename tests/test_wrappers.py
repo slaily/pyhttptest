@@ -17,9 +17,9 @@ def test_execute_single_test_scenario(_, mock):
         'endpoint': 'users',
         'host': 'http://localhost:8080',
     }
-    list_of_result = wrappers.execute_single_test_scenario(json_data)
+    dict_data = wrappers.execute_single_test_scenario(json_data)
 
-    assert len(list_of_result) == 1
+    assert 'body' in dict_data
 
 
 @patch('pyhttptest.wrappers.core.extract_http_response_content', return_value=dict)
@@ -54,6 +54,6 @@ def test_cli_execute(_, mock):
         'headers': '{"Content-Type": "application/json"}',
         'body': '{"username": "pyhttptest"}'
     }
-    output = wrappers._execute('data/HTTP_GET.json')
+    output = wrappers.execute_test_scenarios('data/HTTP_GET.json')
 
     return isinstance(output, str)
