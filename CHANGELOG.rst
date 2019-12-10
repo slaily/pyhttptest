@@ -1,5 +1,12 @@
 This document records all notable changes to *pyhttptest*.
 
+0.2 (10.12.2019)
+---------------------
+
+* Added handling and processing multiple test cases scenarios define in a .json file
+* Fixed handling and processing an HTTP DELETE Request
+* Fixed handling and processing an HTTP PUT Request
+
 0.1 (19.11.2019)
 ---------------------
 
