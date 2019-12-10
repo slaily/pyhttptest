@@ -22,11 +22,11 @@ def _slice_str_args(*args, slice_to=SLICE_TO_INDEX):
     )
 
 
-def _format_data_as_tabular(*args, headers=PRINTER_HEADERS):
+def _format_data_as_tabular(list_data, headers=PRINTER_HEADERS):
     """Formats the data and put it into a table with headers
     on the top оf it.
 
-    :param args: Values.
+    :param list|tuple|set list_data: Iterable of iterables.
     :param headers: Iterable of `str`.
 
     Example table output:
@@ -40,28 +40,30 @@ def _format_data_as_tabular(*args, headers=PRINTER_HEADERS):
     :returns: Data in tabular format.
     :rtype: `str`
     """
-    two_dimensional_array = [args]
-
     return tabulate(
-        two_dimensional_array,
+        list_data,
         headers,
         tablefmt='fancy_grid',
     )
 
 
-def prepare_data_for_print(**kwargs):
+def prepare_data_for_print(list_of_dicts):
     """Wrapper function responsible to take the data, push it
     through several processes to prepare it for print.
 
-    :param kwargs: Data in format key/value.
+    :param list list_of_dicts: List of `dict` data.
 
     :returns: Data for print.
     :rtype: `str`
     """
-    args = extract_properties_values_from_json(
-        kwargs,
-        PRINTER_HEADERS_DATA_KEYS
-    )
-    sliced_str_args = _slice_str_args(*args)
+    list_of_strs = []
 
-    return _format_data_as_tabular(*sliced_str_args)
+    for _dict in list_of_dicts:
+        args = extract_properties_values_from_json(
+            _dict,
+            PRINTER_HEADERS_DATA_KEYS
+        )
+        sliced_str_args = _slice_str_args(*args)
+        list_of_strs.append(sliced_str_args)
+
+    return _format_data_as_tabular(list_of_strs)
