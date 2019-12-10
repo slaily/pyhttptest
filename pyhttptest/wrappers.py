@@ -1,5 +1,4 @@
 from pyhttptest import core
-from pyhttptest.printer import prepare_data_for_print
 
 
 def execute_single_test_scenario(json_data):
@@ -15,10 +14,10 @@ def execute_single_test_scenario(json_data):
     http_method, url = core.prepare_request_args(*required_args)
     response = core.send_http_request(http_method, url)
     response_content = core.extract_http_response_content(response)
-    # Add a JSON property 'name' in the content
+    # Add a test case name as JSON property
     response_content['name'] = json_data['name']
 
-    return [response_content]
+    return response_content
 
 
 def execute_multiple_test_scenarios(list_of_dicts):
@@ -37,12 +36,7 @@ def execute_multiple_test_scenarios(list_of_dicts):
     return results
 
 
-# ===========================
-# CLI
-# ===========================
-
-
-def _execute(file):
+def execute_test_scenarios(file):
     """Wrapper function that executes single or multiple
     test scenarios according to the content from file.
 
@@ -60,14 +54,10 @@ def _execute(file):
         # the business logic for single or multiple test scenarios
         # is executed.
         if isinstance(content, dict):
-            list_of_result = execute_single_test_scenario(content)
+            result = execute_single_test_scenario(content)
         elif isinstance(content, list):
-            list_of_result = execute_multiple_test_scenarios(content)
-        else:
-            return 'The content from the file is not correctly formatted.'
-
-        output_for_print = prepare_data_for_print(list_of_result)
+            result = execute_multiple_test_scenarios(content)
     except Exception as exc:
         return str(exc)
 
-    return output_for_print
+    return core.transform_data_in_tabular_str(result)
