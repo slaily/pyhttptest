@@ -12,7 +12,7 @@ OPTIONAL_SCHEMA_KEYS = (
     'query_string',
 )
 
-HTTP_METHOD_NAMES = ('get', 'post',)
+HTTP_METHOD_NAMES = ('get', 'post', 'put', 'delete',)
 
 SLICE_TO_INDEX = 100
 
