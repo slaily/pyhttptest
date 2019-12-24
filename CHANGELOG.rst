@@ -1,5 +1,11 @@
 This document records all notable changes to *pyhttptest*.
 
+0.3 (24.12.2019)
+---------------------
+
+* Improved JSON parsing speed
+* Fixed YAJL import error on OS X
+
 0.2 (10.12.2019)
 ---------------------
 
