@@ -1,6 +1,6 @@
 from json import dumps
 
-import ijson.backends.yajl2 as ijson
+import ijson.backends.yajl2_c as ijson
 
 from requests import Response
 
