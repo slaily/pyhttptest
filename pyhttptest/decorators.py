@@ -11,6 +11,12 @@ from pyhttptest.exceptions import (
     FileExtensionError,
     HTTPMethodNotSupportedError
 )
+from pyhttptest.http_schemas import (  # noqa
+    get_schema,
+    post_schema,
+    put_schema,
+    delete_schema
+)
 
 
 def check_file_extension(func):
@@ -125,10 +131,15 @@ def validate_data_against_json_schema(func):
         if 'verb' not in data or data['verb'].lower() not in HTTP_METHOD_NAMES:
             raise HTTPMethodNotSupportedError(data.get('verb', 'None'))
 
-        http_schemas_module = modules['pyhttptest.http_schemas']
         http_schema_name = '_'.join([data['verb'].lower(), 'schema'])
+        # The key is used to extract module loaded in sys.modules
+        http_schema_module_key = '.'.join(
+            ['pyhttptest.http_schemas', http_schema_name]
+        )
+        # Extract the module instance
+        http_schema_module = modules[http_schema_module_key]
 
-        if not hasattr(http_schemas_module, http_schema_name):
+        if not hasattr(http_schema_module, http_schema_name):
             raise ValueError(
                 (
                     'There is no appropriate JSON Schema to '
@@ -136,7 +147,6 @@ def validate_data_against_json_schema(func):
                 )
             )
 
-        http_schema_module = getattr(http_schemas_module, http_schema_name)
         http_schema_instance = getattr(http_schema_module, http_schema_name)
         validate(instance=data, schema=http_schema_instance)
 
