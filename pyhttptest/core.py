@@ -8,7 +8,10 @@ from pyhttptest import utils
 from pyhttptest import constants
 from pyhttptest.http import method_dispatcher
 from pyhttptest.printer import prepare_data_for_print
-from pyhttptest.decorators import check_file_extension
+from pyhttptest.decorators import (
+    check_file_extension,
+    validate_data_against_json_schema
+)
 
 
 @check_file_extension
@@ -26,10 +29,10 @@ def load_content_from_json_file(file_path):
     with open(file_path, 'rb') as file:
         items_generator = ijson.items(file, '')
         list_of_items = [item for item in items_generator]
-
         return list_of_items
 
 
+@validate_data_against_json_schema
 def extract_json_data(data):
     """Wrapper function that extracts JSON data.
 
