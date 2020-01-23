@@ -1,5 +1,10 @@
 This document records all notable changes to *pyhttptest*.
 
+0.4 (23.01.2020)
+---------------------
+
+* Fixed improperly-working functionality that validates data against JSON Schema
+
 0.3 (24.12.2019)
 ---------------------
 
