@@ -7,7 +7,13 @@ Describe an HTTP Requests test cases in a simplest and widely used format JSON w
 
 Run one command and gain a summary report.
 
-.. image:: https://www.dropbox.com/s/znlgozgcyyv98bd/pyhttptest-cli-table-of-results.png?raw=1
+📣
+
+📣 **Coverage measuring on Test Cases coming soon**
+
+📣
+
+.. image:: https://www.dropbox.com/s/cd0g07dop4j1riq/pyhttptest-cli-table-of-results.png?raw=1
     :alt: pyhttptest in the command line
     :width: 100%
     :align: center
@@ -68,7 +74,7 @@ Execute a test case:
 
 Result:
 
-.. image:: https://www.dropbox.com/s/algkq1lswqpfx53/pyhttptest-cli.png?raw=1
+.. image:: https://www.dropbox.com/s/0h56p3c4jm4sriy/pyhttptest-cli.png?raw=1
     :alt: pyhttptest in the command line
     :width: 100%
     :align: center
@@ -130,7 +136,7 @@ Execute a test case:
 
 Result:
 
-.. image:: https://www.dropbox.com/s/znlgozgcyyv98bd/pyhttptest-cli-table-of-results.png?raw=1
+.. image:: https://www.dropbox.com/s/cd0g07dop4j1riq/pyhttptest-cli-table-of-results.png?raw=1
     :alt: pyhttptest in the command line
     :width: 100%
     :align: center
