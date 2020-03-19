@@ -1,5 +1,10 @@
 This document records all notable changes to *pyhttptest*.
 
+0.5 (19.03.2020)
+---------------------
+
+* Modified the format of result printed on the screen
+
 0.4 (23.01.2020)
 ---------------------
 
