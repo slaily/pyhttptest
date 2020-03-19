@@ -99,8 +99,6 @@ def extract_http_response_content(response):
     Аttributes that are extracted from the instance are following:
 
         - HTTP Status Code
-        - HTTP Headers
-        - HTTP Body
 
     :param requests.Response response: Instance.
 
@@ -112,8 +110,6 @@ def extract_http_response_content(response):
 
     return {
         'status_code': str(response.status_code),
-        'headers': dumps(dict(response.headers), indent=2),
-        'body': response.text
     }
 
 
