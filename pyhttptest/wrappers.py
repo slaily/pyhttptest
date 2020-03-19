@@ -16,6 +16,7 @@ def execute_single_test_scenario(json_data):
     response_content = core.extract_http_response_content(response)
     # Add a test case name as JSON property
     response_content['name'] = json_data['name']
+    response_content['cover'] = ' % - COMING SOON'
 
     return response_content
 
