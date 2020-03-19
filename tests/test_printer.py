@@ -17,28 +17,23 @@ def test_format_data_as_tabular():
     data = (
         'Test: Extract all users',
         '200',
-        '{Content-Type: application/json}',
-        '{username: pyhttptest}'
     )
     tabular_data = printer._format_data_as_tabular(data)
 
-    assert 'HTTP Response Headers' in tabular_data
+    assert 'Test name' in tabular_data
 
 
 def test_process_data_for_print():
-    test_kwargs = [{
-        'name': 'Test: process data for print',
-        'status_code': '200',
-        'headers': '{Content-Type: application/json}',
-        'body': 'Lorem Ipsum'
-    },
-    {
-       'name': 'Test: process data for print',
-        'status_code': '200',
-        'headers': '{Content-Type: application/json}',
-        'body': 'Lorem Ipsum'
-    }
+    test_kwargs = [
+        {
+            'name': 'Test: process data for print',
+            'status_code': '200',
+        },
+        {
+           'name': 'Test: process data for print',
+            'status_code': '200',
+        }
     ]
     data_for_print = printer.prepare_data_for_print(test_kwargs)
-    print(data_for_print)
+
     assert 'HTTP Response Status Code' in data_for_print
