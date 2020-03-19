@@ -31,11 +31,14 @@ def _format_data_as_tabular(list_data, headers=PRINTER_HEADERS):
 
     Example table output:
 
-        ╒═════════════════════════╤═════════════╤══════════════════════════════════════════════════╤══════════════════════════════╕
-        │                         │   Test name │ HTTP Response Status CodeHTTP Response Headers   │ HTTP Response Message Body   │
-        ╞═════════════════════════╪═════════════╪══════════════════════════════════════════════════╪══════════════════════════════╡
-        │ Test: Extract all users │         200 │ {Content-Type: application/json}                 │ {username: pyhttptest}       │
-        ╘═════════════════════════╧═════════════╧══════════════════════════════════════════════════╧══════════════════════════════╛
+        ╒══════════════════════════╤═════════════════════════════╕
+        │ Test name                │   HTTP Response Status Code │
+        ╞══════════════════════════╪═════════════════════════════╡
+        │ TEST: List all users     │                         200 │
+        ├──────────────────────────┼─────────────────────────────┤
+        │ TEST: Create an HTML bin │                         200 │
+        ╘══════════════════════════╧═════════════════════════════╛
+
 
     :returns: Data in tabular format.
     :rtype: `str`
