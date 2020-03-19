@@ -67,7 +67,7 @@ def test_extract_http_response_content():
     response_content = core.extract_http_response_content(response)
 
     assert all(
-        key in response_content for key in ('status_code', 'headers', 'body')
+        key in response_content for key in ('status_code',)
     )
 
 
