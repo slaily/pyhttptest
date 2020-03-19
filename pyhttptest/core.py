@@ -1,5 +1,3 @@
-from json import dumps
-
 import ijson.backends.yajl2_c as ijson
 
 from requests import Response
@@ -29,6 +27,7 @@ def load_content_from_json_file(file_path):
     with open(file_path, 'rb') as file:
         items_generator = ijson.items(file, '')
         list_of_items = [item for item in items_generator]
+
         return list_of_items
 
 
