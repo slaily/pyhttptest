@@ -1,6 +1,9 @@
 pyhttptest: HTTP tests over RESTful APIs✨
 ##########################################
 
+.. image:: https://travis-ci.org/slaily/pyhttptest.svg?branch=master
+    :target: https://travis-ci.org/slaily/pyhttptest
+
 Pissed about writing test scripts against your RESTFul APIs anytime?
 
 Describe an HTTP Requests test cases in a simplest and widely used format JSON within a file.
