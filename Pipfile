@@ -14,6 +14,7 @@ jsonschema = "*"
 requests = "*"
 tabulate = "*"
 click = "*"
+zipp = "==0.6"
 
 [requires]
 python_version = "3.7"
