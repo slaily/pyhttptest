@@ -1,5 +1,7 @@
 import pytest
 
+from jsonschema.exceptions import ValidationError
+
 from pyhttptest import decorators
 from pyhttptest.exceptions import (
     FileExtensionError,
@@ -112,6 +114,27 @@ def test_validate_data_against_json_schema_with_not_supported_http_method():
 
     part_of_exc_msg = "An HTTP method ('{http_method}') is not".format(
         http_method=data['verb']
+    )
+
+    assert part_of_exc_msg in str(exc.value)
+
+
+def test_validate_data_against_json_schema_with_invalid_value_type_in_data():
+    with pytest.raises(ValidationError) as exc:
+        func = decorators.validate_data_against_json_schema(
+            lambda data: data
+        )
+        data = {
+            'name': 'TEST: List all users',
+            'verb': 'GET',
+            'endpoint': 'users',
+            'host': 'https://localhost.com',
+            'response': True,
+        }
+        func(data)
+
+    part_of_exc_msg = (
+        "{value} is not of type 'object'".format(value=data['response'])
     )
 
     assert part_of_exc_msg in str(exc.value)
