@@ -1,0 +1,16 @@
+{
+  "name": "TEST: List all users",
+  "verb": "GET",
+  "endpoint": "users",
+  "host": "http://localhost:8080",
+  "headers": {
+    "Accept-Language": "en-US"
+  },
+  "query_string": {
+    "limit": 5
+  },
+  "response": {
+    "index": "users",
+    "save": true
+  }
+}
