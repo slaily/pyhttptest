@@ -28,6 +28,13 @@ def test_extract_json_data():
     assert isinstance(required_args, tuple) and isinstance(optional_kwargs, dict)
 
 
+def test_extract_json_data_with_key_name_response():
+    content = core.load_content_from_json_file('data/HTTP_GET_SAVE_RESPONSE.json')
+    required_args, optional_kwargs = core.extract_json_data(content[0])
+
+    assert 'response' in optional_kwargs and optional_kwargs['response']
+
+
 def test_prepare_request_args():
     args = (
         'TEST: List all users',
