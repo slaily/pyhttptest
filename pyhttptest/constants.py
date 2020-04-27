@@ -10,6 +10,7 @@ REQUIRED_SCHEMA_KEYS = (
 OPTIONAL_SCHEMA_KEYS = (
     'headers',
     'query_string',
+    'response',
 )
 
 HTTP_METHOD_NAMES = ('get', 'post', 'put', 'delete',)
