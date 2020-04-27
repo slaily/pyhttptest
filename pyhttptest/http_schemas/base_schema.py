@@ -1,6 +1,6 @@
 # A ``dict`` schema that defines a structure specification for sending
 # an HTTP Request, along with required and non-required parameters
-# like Request Header and Response Headert that might be sent by request.
+# like Request Header and Response Headers that might be sent by request.
 # This is the base schema that will be extended from the HTTP Methods
 # schemas::
 #
@@ -55,6 +55,13 @@ base_schema = {
                 'Transfer-Encoding': {'type': 'string'}
             }
         },
+        'response': {
+            'type': 'object',
+            'properties': {
+                'index': {'type': 'string'},
+                'save': {'type': 'boolean'}
+            }
+        }
     },
     'required': [
         'name',
