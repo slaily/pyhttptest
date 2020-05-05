@@ -61,7 +61,7 @@ def post(*args, **kwargs):
     return requests.post(
         url,
         params=query_string,
-        data=payload,
+        json=payload,
         headers=headers
     )
 
