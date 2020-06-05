@@ -107,9 +107,17 @@ def extract_http_response_content(response):
     if not isinstance(response, Response):
         return None
 
-    return {
+    content = {
         'status_code': str(response.status_code),
     }
+
+    if response.content:
+        try:
+            content['data'] = response.json()
+        except Exception:
+            pass
+
+    return content
 
 
 def transform_data_in_tabular_str(data):
