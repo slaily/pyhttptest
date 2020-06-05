@@ -1,3 +1,5 @@
+from json import dumps
+
 from unittest.mock import patch
 
 import pytest
@@ -76,6 +78,16 @@ def test_extract_http_response_content():
     assert all(
         key in response_content for key in ('status_code',)
     )
+
+
+def test_extract_http_response_content_check_for_json_key():
+    response = Response()
+    response.status_code = 200
+    response.encoding = 'UTF-8'
+    response._content = dumps({'content': True}).encode()
+    response_content = core.extract_http_response_content(response)
+
+    assert 'data' in response_content
 
 
 def test_extract_http_response_content_with_not_supported_argument_type():
