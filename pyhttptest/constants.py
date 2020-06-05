@@ -11,6 +11,7 @@ OPTIONAL_SCHEMA_KEYS = (
     'headers',
     'query_string',
     'response',
+    'payload',
 )
 
 HTTP_METHOD_NAMES = ('get', 'post', 'put', 'delete',)

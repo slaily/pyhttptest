@@ -12,7 +12,7 @@ def execute_single_test_scenario(json_data):
     """
     required_args, optional_kwargs = core.extract_json_data(json_data)
     http_method, url = core.prepare_request_args(*required_args)
-    response = core.send_http_request(http_method, url)
+    response = core.send_http_request(http_method, url, **optional_kwargs)
     response_content = core.extract_http_response_content(response)
     # Add a test case name as JSON property
     response_content['name'] = json_data['name']
