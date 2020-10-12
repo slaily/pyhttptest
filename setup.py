@@ -30,7 +30,7 @@ setup(
     packages=find_namespace_packages(include=['pyhttptest', 'pyhttptest.*']),
     install_requires=[
         'click==7.0',
-        'ijson==2.5.1',
+        'ijson==3.0.3',
         'jsonschema==3.1.1',
         'requests==2.22.0',
         'tabulate==0.8.5'
