@@ -10,11 +10,12 @@ Describe an HTTP Requests test cases in a simplest and widely used format JSON w
 
 Run one command and gain a summary report.
 
-📣
+**WARNING⚠️**
+    The project is in search of any kind of contributor. Due to my commitment to managing many other projects, still **pyhttptest** lacking introducing features       requested from users. The project has a lot of potentials to be useful and used on a daily basis. Glad to receive any help and discuss the future of               **pyhttptest**. Contact me by email: **iliyan@cosense.ai**.
+
 
 📣 **Coverage measuring on Test Cases coming soon**
 
-📣
 
 .. image:: https://www.dropbox.com/s/cd0g07dop4j1riq/pyhttptest-cli-table-of-results.png?raw=1
     :alt: pyhttptest in the command line
